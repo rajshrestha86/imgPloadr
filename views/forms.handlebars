@@ -1,0 +1,31 @@
+<form method="post" action="/form/save">
+  <input name="name" type="text" placeholder="First Name" /> <br>
+  <label for="district"> District </label>
+  <select label="District" name="district" id="district" onChange="change()" >
+      {{#each districts }}
+      <option value="name"> {{ name }} </option>
+      {{/each}}
+  </select> <br>
+  
+  <label for="constituency"> Constituency </label>
+  <select name="constituency" id="constituency" >
+
+
+
+  </select> <br>
+  <input type="submit" name="submit" />
+</form>
+
+<script>
+
+function change(sel){
+var a={{{districts}}};
+var constituency=document.getElementById("constituency");
+{{#each districts }}      
+var option = document.createElement("option");
+option.text="Option1";
+constituency.add(option);
+{{/each}}
+alert(a.name);
+}
+</script>
